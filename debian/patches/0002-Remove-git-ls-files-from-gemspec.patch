@@ -1,0 +1,21 @@
+From: Youhei SASAKI <uwabami@gfd-dennou.org>
+Date: Tue, 5 Sep 2017 14:06:54 +0900
+Subject: Remove git ls-files from gemspec
+
+Signed-off-by: Youhei SASAKI <uwabami@gfd-dennou.org>
+---
+ posix-spawn.gemspec | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/posix-spawn.gemspec b/posix-spawn.gemspec
+index 532e5f7..5df9340 100644
+--- a/posix-spawn.gemspec
++++ b/posix-spawn.gemspec
+@@ -20,6 +20,6 @@ Gem::Specification.new do |s|
+   s.executables << 'posix-spawn-benchmark'
+   s.require_paths = ['lib']
+ 
+-  s.files = `git ls-files`.split("\n")
++  s.files = ["COPYING","Gemfile","HACKING","README.md","Rakefile","TODO","bin/posix-spawn-benchmark","ext/extconf.rb","ext/posix-spawn.c","lib/posix-spawn.rb","lib/posix/spawn.rb","lib/posix/spawn/child.rb","lib/posix/spawn/version.rb","posix-spawn.gemspec","test/test_backtick.rb","test/test_child.rb","test/test_helper.rb","test/test_popen.rb","test/test_spawn.rb","test/test_system.rb"]
+   s.extra_rdoc_files = %w[ COPYING HACKING ]
+ end

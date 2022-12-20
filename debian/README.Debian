@@ -1,0 +1,10 @@
+Ruby posix-spawn library for Debian
+-----------------------------------
+
+In Debian, posix-spawn-benchmark is installed at:
+
+   /usr/share/doc/ruby-posix-spawn/examples/posix-spawn-benchmark
+
+If you want to check/runnning benchmark, please use above scripts.
+
+ -- Youhei SASAKI <uwabami@gfd-dennou.org>, Tue,  8 May 2012 22:32:48 +0900

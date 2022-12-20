@@ -1,0 +1,3 @@
+0001-Avoid-using-PATH_MAX-for-GNU-Hurd.patch
+0002-Remove-git-ls-files-from-gemspec.patch
+5201e921a788fbb97f14ea0c617a2213dc3da1ca.patch

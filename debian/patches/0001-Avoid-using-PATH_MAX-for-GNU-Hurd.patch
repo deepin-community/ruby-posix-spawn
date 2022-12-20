@@ -1,0 +1,28 @@
+From: Youhei SASAKI <uwabami@gfd-dennou.org>
+Date: Wed, 4 Jun 2014 01:57:22 +0900
+Subject: Avoid using PATH_MAX for GNU/Hurd
+
+Signed-off-by: Youhei SASAKI <uwabami@gfd-dennou.org>
+---
+ ext/posix-spawn.c | 8 ++++++--
+ 1 file changed, 6 insertions(+), 2 deletions(-)
+
+diff --git a/ext/posix-spawn.c b/ext/posix-spawn.c
+index 1659bed..5f3587a 100644
+--- a/ext/posix-spawn.c
++++ b/ext/posix-spawn.c
+@@ -462,8 +462,12 @@ rb_posixspawn_pspawn(VALUE self, VALUE env, VALUE argv, VALUE options)
+ 	}
+ 
+ 	if (ret != 0) {
+-		char error_context[PATH_MAX+32];
+-		snprintf(error_context, sizeof(error_context), "when spawning '%s'", file);
++		char *error_context = NULL;
++		size_t len = 15 + strlen(file) + 1 + 1;
++		error_context = malloc(len);
++		if (error_context == NULL)
++		  return -1;
++		snprintf(error_context, len, "when spawning '%s'", file);
+ 		errno = ret;
+ 		rb_sys_fail(error_context);
+ 	}

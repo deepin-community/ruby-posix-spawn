@@ -1,0 +1,12 @@
+#!/usr/bin/make -f
+
+%:
+	dh $@ --buildsystem=ruby --with ruby
+
+override_dh_auto_install:
+	dh_auto_install
+	rm -rf $(CURDIR)/debian/ruby-posix-spawn/usr/bin
+
+override_dh_auto_clean:
+	dh_auto_clean
+	rm -fr $(CURDIR)/tmp
